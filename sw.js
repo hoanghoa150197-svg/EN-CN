@@ -1,5 +1,5 @@
 /* Bump CACHE_VERSION when publishing a new release. */
-const CACHE_VERSION='language-hub-v1-20261022';
+const CACHE_VERSION='language-hub-v2-20261022';
 const SHELL=['./','./index.html','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE_VERSION).then(cache=>cache.addAll(SHELL))));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('language-hub-')&&key!==CACHE_VERSION)await caches.delete(key);await self.clients.claim()})()));
